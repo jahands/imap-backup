@@ -15,9 +15,13 @@ jobs:
       EARTHLY_SATELLITE: mini-sat
       FORCE_COLOR: 1
     steps:
+      - name: Extract Branch Name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
       - uses: earthly/actions-setup@v1.0.11
         with:
           version: v0.8.6
       - uses: actions/checkout@v4
       - name: "Docker: Build"
-        run: earthly --ci --push +docker
+        run: earthly --ci --push +docker --DOCKER_TAG=${{ steps.extract_branch.outputs.branch }}
