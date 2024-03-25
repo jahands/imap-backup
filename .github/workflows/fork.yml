@@ -6,7 +6,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubicloud-standard-2
+    name: Publish Image (fork)
+    runs-on: ubuntu-latest
     concurrency: build-docker-images
     env:
       EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
