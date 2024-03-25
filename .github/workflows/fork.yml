@@ -1,0 +1,22 @@
+name: Publish Image (fork)
+
+on:
+  push:
+    branches: [fork]
+
+jobs:
+  build:
+    runs-on: ubicloud-standard-2
+    concurrency: build-docker-images
+    env:
+      EARTHLY_TOKEN: ${{ secrets.EARTHLY_TOKEN }}
+      EARTHLY_ORG: jahands
+      EARTHLY_SATELLITE: mini-sat
+      FORCE_COLOR: 1
+    steps:
+      - uses: earthly/actions-setup@v1.0.11
+        with:
+          version: v0.8.6
+      - uses: actions/checkout@v4
+      - name: "Docker: Build"
+        run: earthly --ci --push +docker

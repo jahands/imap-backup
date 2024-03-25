@@ -5,12 +5,13 @@ on:
     branches:
       - main
       - feature/*
+      - fork
 
   pull_request:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubicloud-standard-2
     name: Ruby ${{ matrix.ruby }}
     strategy:
       matrix:
