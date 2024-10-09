@@ -13,8 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Ruby ${{ matrix.ruby }}
-    # FIX: Only run one at a time to prevent port conflicts
-    concurrency: ${{ github.workflow }}-build
     strategy:
       matrix:
         ruby:
