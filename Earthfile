@@ -2,7 +2,8 @@ VERSION 0.8
 PROJECT jahands/docker
 
 # These are taken from container/Containerfile
-# and should be kept in sync
+# and should be kept in sync.
+# git remote add upstream git@github.com:joeyates/imap-backup.git
 
 bundle:
 	FROM docker.io/library/ruby:3.2.2-alpine3.18
