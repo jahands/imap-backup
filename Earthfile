@@ -19,7 +19,7 @@ bundle:
 
 build:
 	FROM docker.io/library/ruby:3.2.2-alpine3.18
-	COPY --dir +build/bundle /usr/local/
+	COPY --dir +bundle/bundle /usr/local/
 	WORKDIR /app
 	# See .earthlyignore (copied from .containerignore)
 	# for details on what gets copied here.
