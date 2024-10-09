@@ -23,4 +23,4 @@ docker:
 	ENV PATH=${PATH}:/app/bin
 	CMD ["imap-backup", "backup", "-c", "/config/imap-backup.json"]
 	ARG DOCKER_TAG='unknown'
-	SAVE IMAGE --push gitea.uuid.rocks/docker/imap-backup:$DOCKER_TAG
+	SAVE IMAGE --push gitea.uuid.rocks/geobox/imap-backup:$DOCKER_TAG
